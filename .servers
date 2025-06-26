@@ -1,0 +1,64 @@
+[TS36]
+user = desarrollo
+password = 852987
+ip = 10.0.0.36
+[TS38]
+user = desarrollo
+password = 943721
+ip = 10.0.0.38
+[TS1]
+user = desarrollo
+password = 591441
+ip = 10.0.0.41
+[TS2]
+user = desarrollo
+password = 934237
+ip = 10.0.0.42
+[TS3]
+user = desarrollo
+password = 289535
+ip = 10.0.0.43
+[TS4]
+user = desarrollo
+password = 511928
+ip = 10.0.0.44
+[TS5]
+user = desarrollo
+password = 664779
+ip = 10.0.0.45
+[TS6]
+user = desarrollo
+password = 659194
+ip = 10.0.0.46
+[TS7]
+user = desarrollo
+password = 766139
+ip = 10.0.0.47
+[TS8]
+user = desarrollo
+password = 796259
+ip = 10.0.0.48
+[TS9]
+user = desarrollo
+password = 266315
+ip = 10.0.0.49
+[TS10]
+user = desarrollo
+password = 654471
+ip = 10.0.0.50
+[TS11]
+user = desarrollo
+password = 625593 
+ip = 10.0.0.51
+[TS12]
+user = desarrollo
+password = 927843
+ip = 10.0.0.52
+[TS13]
+user = desarrollo
+password = 463483
+ip = 10.0.0.53
+[TS14]
+user = desarrollo
+password = 757745
+ip = 10.0.0.54

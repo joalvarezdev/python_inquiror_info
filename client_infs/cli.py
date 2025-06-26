@@ -8,6 +8,7 @@ import click
 from .ui.menus import show_main_menu, show_environment_menu
 from .ui.client_flows import create_client_flow
 from .ui.quick_pass_flows import quick_pass_flow
+from .ui.servers_flows import server_flow
 
 
 def main():
@@ -15,14 +16,12 @@ def main():
     
     try:
         while True:
-            # Menú principal
             main_choice = show_main_menu()
             
             if main_choice == "exit":
                 click.echo("¡Hasta luego!")
                 break
             elif main_choice == "create_client":
-                # Submenú de entornos
                 while True:
                     env_choice = show_environment_menu()
                     
@@ -36,8 +35,9 @@ def main():
                         click.echo("Esta opción estará disponible próximamente.")
                         click.pause("Presione Enter para continuar...")
             elif main_choice == "quick_pass":
-                # Submenu de Quick Pass
                 quick_pass_flow()
+            elif main_choice == "servers":
+                server_flow()
                         
     except (KeyboardInterrupt, EOFError):
         click.echo("\n¡Hasta luego!")

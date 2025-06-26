@@ -48,7 +48,7 @@ def quick_pass_flow():
             click.pause("Presione Enter para continuar...")
 
 
-def fichar_flow(service: QuickPassService, headless: bool = True):
+def fichar_flow(service: QuickPassService = QuickPassService(), headless: bool = True):
     """Flujo para realizar fichaje."""
     mode_text = "silencioso" if headless else "visible"
     show_header(f"Fichaje - Modo {mode_text.title()}")

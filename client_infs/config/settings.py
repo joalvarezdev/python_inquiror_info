@@ -39,6 +39,7 @@ class Settings:
         self.auth_password = os.getenv("AUTH_PASSWORD", "infosis")
         self.base_url_testing = os.getenv("BASE_URL", "https://auth-test.infosis.tech")
         self.base_url_production = os.getenv("PROD_BASE_URL", "https://auth.infosis.tech")
+        self.server_file = os.getenv("SERVER_INFO_FILE_PATH", "")
         self.config_dir = config_dir
         
         # Configuración de logs - usar variable de entorno o directorio por defecto

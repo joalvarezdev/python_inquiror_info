@@ -14,6 +14,7 @@ def show_main_menu():
         choices=[
             {"name": "👥 Crear cliente", "value": "create_client"},
             {"name": "🕐 Quick Pass (Fichaje)", "value": "quick_pass"},
+            {"name": "🖥️  Servidores", "value": "servers"},
             {"name": "🚪 Salir", "value": "exit"}
         ],
         vi_mode=True

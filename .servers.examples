@@ -1,0 +1,4 @@
+[server_name]
+user = user_test
+password = password_test
+ip = ip_test
