@@ -6,6 +6,35 @@ import click
 
 from client_infs.services.client_service import ClientService
 from client_infs.utils.ui_helpers import show_header, show_separator
+from InquirerPy import inquirer
+
+
+def client_flows():
+
+    while True:
+        env_choice = show_environment_menu()
+                    
+        if env_choice == "back":
+            break
+
+        if env_choice == "testing":
+            create_client_flow("testing")
+        elif env_choice == "production":
+            click.echo("\n⚠️  Funcionalidad de producción en desarrollo")
+
+
+def show_environment_menu():
+    """Muestra el menú de selección de entorno con navegación vim (hjkl)."""
+    show_header("Gestión de Clientes - Selección de Entorno")
+    return inquirer.select(
+        message="Seleccione el entorno:",
+        choices=[
+            {"name": "Testing", "value": "testing"},
+            {"name": "Producción (próximamente)", "value": "production"},
+            {"name": "← Volver al menú principal", "value": "back"}
+        ],
+        vi_mode=True
+    ).execute()
 
 
 def create_client_flow(environment: str):

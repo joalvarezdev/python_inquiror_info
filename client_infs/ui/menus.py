@@ -20,16 +20,3 @@ def show_main_menu():
         vi_mode=True
     ).execute()
 
-
-def show_environment_menu():
-    """Muestra el menú de selección de entorno con navegación vim (hjkl)."""
-    show_header("Gestión de Clientes - Selección de Entorno")
-    return inquirer.select(
-        message="Seleccione el entorno:",
-        choices=[
-            {"name": "Testing", "value": "testing"},
-            {"name": "Producción (próximamente)", "value": "production"},
-            {"name": "← Volver al menú principal", "value": "back"}
-        ],
-        vi_mode=True
-    ).execute()
