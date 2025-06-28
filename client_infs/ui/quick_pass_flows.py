@@ -12,7 +12,7 @@ from client_infs.utils.ui_helpers import show_header, show_separator
 
 def quick_pass_menu():
     """Muestra el menú de Quick Pass."""
-    show_header("Quick Pass - Sistema de Fichaje")
+    show_header()
     return inquirer.select(
         message="Seleccione una opción:",
         choices=[
@@ -29,29 +29,37 @@ def quick_pass_menu():
 def quick_pass_flow():
     """Flujo principal de Quick Pass."""
     service = QuickPassService()
+
+    actions = {
+        "fichar": silent_fichar_flow,
+        "fichar_visible": visible_fichar_flow,
+        "logs": show_logs_flow,
+        "config": config_flow
+    }
     
     while True:
         choice = quick_pass_menu()
         
         if choice == "back":
             break
-        elif choice == "fichar":
-            fichar_flow(service, headless=True)
-        elif choice == "fichar_visible":
-            fichar_flow(service, headless=False)
-        elif choice == "logs":
-            show_logs_flow(service)
-        elif choice == "config":
-            config_flow(service)
+
+        actions.get(choice, lambda: click.echo("Opción no válida"))(service)
         
         if choice != "back":
             click.pause("Presione Enter para continuar...")
 
 
+def visible_fichar_flow(service: QuickPassService = QuickPassService()):
+    fichar_flow(service, headless=False)
+
+
+def silent_fichar_flow(service: QuickPassService = QuickPassService()):
+    fichar_flow(service, headless=True)
+
+
 def fichar_flow(service: QuickPassService = QuickPassService(), headless: bool = True):
     """Flujo para realizar fichaje."""
-    mode_text = "silencioso" if headless else "visible"
-    show_header(f"Fichaje - Modo {mode_text.title()}")
+    show_header()
     
     click.echo(f"🕐 Iniciando proceso de fichaje...")
     
@@ -111,7 +119,7 @@ def fichar_flow(service: QuickPassService = QuickPassService(), headless: bool =
 
 def show_logs_flow(service: QuickPassService):
     """Flujo para mostrar logs recientes."""
-    show_header("Logs de Fichaje - Últimos 7 días")
+    show_header()
     
     logs = service.get_recent_logs(7)
     

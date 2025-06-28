@@ -11,9 +11,14 @@ from InquirerPy import inquirer
 
 def client_flows():
 
+    actions = {
+        "testing"
+    }
+
+
     while True:
         env_choice = show_environment_menu()
-                    
+
         if env_choice == "back":
             break
 
@@ -25,7 +30,7 @@ def client_flows():
 
 def show_environment_menu():
     """Muestra el menú de selección de entorno con navegación vim (hjkl)."""
-    show_header("Gestión de Clientes - Selección de Entorno")
+    show_header()
     return inquirer.select(
         message="Seleccione el entorno:",
         choices=[

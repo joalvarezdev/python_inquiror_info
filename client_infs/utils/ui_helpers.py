@@ -11,7 +11,7 @@ def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
-def show_header(title: str = "INFOSIS CLI"):
+def show_header():
     """Limpia la pantalla sin mostrar header."""
     clear_screen()
 

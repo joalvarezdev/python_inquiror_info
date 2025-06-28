@@ -8,7 +8,7 @@ from client_infs.utils.ui_helpers import show_header
 
 def show_main_menu():
     """Muestra el menú principal con navegación vim (hjkl)."""
-    show_header("INFOSIS CLI - Menú Principal")
+    show_header()
     return inquirer.select(
         message="Seleccione una opción:",
         choices=[
