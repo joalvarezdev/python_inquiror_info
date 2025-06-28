@@ -1,9 +1,7 @@
-import re
 import click
 
 from InquirerPy import inquirer
 from client_infs.utils.ui_helpers import show_header
-from client_infs.config.settings import settings
 from client_infs.services.server_service import ServerService
 
 def server_flow():
@@ -29,14 +27,14 @@ def server_flow():
         if choice not in actions:
             click.pause(f"❌ Opción no válida: {choice}")
 
-        actions[choice](server)
+        actions.get(choice, lambda: click.echo("Opción no válida"))(server)
 
         click.pause("...")
 
 
 def server_menu_view():
     """Muestra el menú de gestión de servidores."""
-    show_header("Gestión de Servidores")
+    show_header()
     return inquirer.select(
         message="Seleccione una opción:",
         choices=[
@@ -50,7 +48,7 @@ def server_menu_view():
 
 
 def server_list_view(service: ServerService):
-    show_header("Lista de Servidores")
+    show_header()
 
     return inquirer.select(
         message="Seleccione un servidor:",
