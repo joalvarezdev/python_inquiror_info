@@ -27,6 +27,9 @@ dependencies = [
 [project.scripts]
 inf = "client_infs.cli:main"
 quick = "client_infs.ui.quick_pass_flows:fichar_flow"
+connect = "client_infs.ui.servers_flows:connect"
+restart= "client_infs.ui.servers_flows:restart"
+srvinf = "client_infs.ui.servers_flows:show_info"
 
 [project.urls]
 Repository = "https://github.com/joalvarezdev/pyme"
