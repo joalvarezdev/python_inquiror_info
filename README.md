@@ -40,44 +40,41 @@ client-infs/
 - Python 3.11 o superior
 - Git
 
-### 1. Clonar el repositorio
+### Instalacion Rapida
 
 ```bash
-git clone <url-del-repositorio>
+# Clonar el repositorio
+git clone https://github.com/joalvarezdev/python_inquiror_info.git
+cd client-infs
+
+# Ejecutar script de instalacion automatica
+./install.sh
+```
+
+### Instalacion Manual
+
+#### 1. Clonar el repositorio
+
+```bash
+git clone https://github.com/joalvarezdev/python_inquiror_info.git
 cd client-infs
 ```
 
-### 2. Opciones de instalacion
+#### 2. Opciones de instalacion
 
-#### Opcion A: Instalacion Global (recomendado para uso diario)
-
-```bash
-# Instalar globalmente
-pip install .
-
-# Configurar archivos de configuracion
-python setup_global.py
-
-# Usar desde cualquier lugar
-client-infs
-# o
-infosis-client
-```
-
-#### Opcion B: Con UV (recomendado para desarrollo)
+##### Opcion A: Con UV (recomendado)
 
 ```bash
 # Instalar uv si no lo tienes
-pip install uv
+curl -LsSf https://astral.sh/uv/install.sh | sh
 
-# Instalar dependencias
-uv sync
-
-# Ejecutar aplicacion
-uv run main.py
+# Crear entorno virtual e instalar dependencias
+uv venv
+source .venv/bin/activate
+uv pip install -e .
 ```
 
-#### Opcion C: Con venv tradicional (recomendado para VS Code)
+##### Opcion B: Con venv tradicional
 
 ```bash
 # Crear entorno virtual
@@ -91,6 +88,16 @@ source .venv/bin/activate
 
 # Instalar dependencias
 pip install -e .
+```
+
+##### Opcion C: Instalacion directa desde GitHub
+
+```bash
+# Con pip
+pip install git+https://github.com/joalvarezdev/python_inquiror_info.git@v0.1.0
+
+# Con uv
+uv add git+https://github.com/joalvarezdev/python_inquiror_info.git@v0.1.0
 ```
 
 ### 3. Configurar variables de entorno
@@ -139,7 +146,23 @@ La configuracion esta incluida en `.vscode/settings.json` y deberia funcionar au
 
 ## Uso de la Aplicacion
 
-### Ejecutar la aplicacion
+### Comandos Disponibles
+
+Despues de la instalacion, puedes usar estos comandos:
+
+```bash
+# Activar entorno virtual (si usaste instalacion manual)
+source .venv/bin/activate
+
+# Comandos principales
+inf       # Menu principal de la aplicacion
+quick     # Quick pass flow - fichar rapidamente
+connect   # Conectar a servidor
+restart   # Reiniciar servidor
+srvinf    # Mostrar informacion del servidor
+```
+
+### Ejecutar desde codigo fuente
 
 ```bash
 # Con entorno virtual activado
@@ -218,6 +241,65 @@ source .venv/bin/activate
 pip install -e .
 ```
 
+## Releases
+
+### Descarga la version estable
+
+Puedes descargar la version mas reciente desde [GitHub Releases](https://github.com/joalvarezdev/python_inquiror_info/releases).
+
+### Historial de versiones
+
+- **v0.1.0** - Primera version estable
+  - Gestion de clientes y servidores
+  - Quick pass flow
+  - Comandos CLI completos
+
+## API y Configuracion
+
+### Variables de entorno disponibles
+
+| Variable | Descripcion | Valor por defecto |
+|----------|-------------|-------------------|
+| `AUTH_USERNAME` | Usuario para autenticacion | `zeus` |
+| `AUTH_PASSWORD` | Contraseña para autenticacion | `infosis` |
+| `BASE_URL` | URL del entorno de testing | `https://auth-test.infosis.tech` |
+| `PROD_BASE_URL` | URL del entorno de produccion | `https://auth.infosis.tech` |
+
+### Estructura de comandos
+
+```bash
+client_infs/
+├── cli.py                    # Punto de entrada principal
+├── ui/
+│   ├── menus.py             # Menus interactivos
+│   ├── client_flows.py      # Flujos de gestion de clientes
+│   ├── quick_pass_flows.py  # Flujo de fichaje rapido
+│   └── servers_flows.py     # Gestion de servidores
+└── services/
+    ├── client_service.py    # Servicios de cliente
+    ├── quick_pass_service.py # Servicios de fichaje
+    └── server_service.py    # Servicios de servidor
+```
+
+## Desarrollo
+
+### Configuracion del entorno de desarrollo
+
+```bash
+# Clonar el repositorio
+git clone https://github.com/joalvarezdev/python_inquiror_info.git
+cd client-infs
+
+# Instalar dependencias de desarrollo
+uv sync --dev
+
+# Ejecutar tests (si existen)
+pytest
+
+# Linting
+ruff check .
+```
+
 ## Proximas Funcionalidades
 
 - [ ] Soporte completo para entorno de produccion
@@ -225,6 +307,8 @@ pip install -e .
 - [ ] Configuracion personalizada de clientes
 - [ ] Exportacion de configuraciones
 - [ ] Logs y auditoria
+- [ ] Tests automatizados
+- [ ] Documentacion de API
 
 ## Contribuir
 
@@ -234,14 +318,26 @@ pip install -e .
 4. Push a la rama (`git push origin feature/nueva-funcionalidad`)
 5. Abre un Pull Request
 
+### Codigo de conducta
+
+- Sigue las convenciones de codigo existentes
+- Incluye tests para nuevas funcionalidades
+- Actualiza la documentacion cuando sea necesario
+- Usa commits descriptivos
+
 ## Licencia
 
-Este proyecto esta bajo la Licencia MIT.
+Este proyecto esta bajo la Licencia MIT. Ver archivo `LICENSE` para mas detalles.
 
 ## Soporte
 
 Si tienes problemas o preguntas:
 
-1. Revisa la seccion de Solucion de Problemas
-2. Abre un Issue en GitHub
-3. Contacta al equipo de desarrollo
+1. Revisa la seccion de [Solucion de Problemas](#solucion-de-problemas)
+2. Consulta los [Issues existentes](https://github.com/joalvarezdev/python_inquiror_info/issues)
+3. Abre un [nuevo Issue](https://github.com/joalvarezdev/python_inquiror_info/issues/new)
+4. Contacta al equipo de desarrollo
+
+---
+
+**Equipo INFOSIS** - Aplicacion de consola para gestion de clientes y servidores

@@ -44,7 +44,7 @@ def show_environment_menu():
 
 def create_client_flow(environment: str):
     """Flujo para crear un cliente en el entorno especificado."""
-    show_header(f"Crear Cliente - Entorno {environment.title()}")
+    show_header()
     
     client_service = ClientService(environment)
     
