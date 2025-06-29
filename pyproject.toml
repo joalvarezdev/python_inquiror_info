@@ -18,9 +18,9 @@ classifiers = [
 dependencies = [
     "requests>=2.31.0",
     "click>=8.1.0",
-    "python-dotenv>=1.0.0",
+    "python-dotenv>=1.1.1",
     "inquirerpy>=0.3.4",
-    "selenium>=4.15.0",
+    "selenium>=4.34.0",
     "pyperclip>=1.8.2"
 ]
 
